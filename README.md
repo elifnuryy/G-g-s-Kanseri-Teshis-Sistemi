@@ -40,6 +40,7 @@ Play tuşuna bastığınızda Unity, Python sunucusu ile haberleşmeye başlayac
 
 📊 Model Başarısı
 Geliştirilen 1D-CNN modeli, test verileri üzerinde %98.68 doğruluk (Accuracy) oranına ulaşmıştır. Ayrıca yanlış negatifleri önlemek için Duyarlılık (Recall) değeri optimize edilmiştir.
+
 <img width="605" height="319" alt="image" src="https://github.com/user-attachments/assets/504872fb-6d03-4b54-8e86-161b61cf9072" />
 
 Hazırlayan: Elifnur YÜKSEL
