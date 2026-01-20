@@ -22,7 +22,8 @@ Projeyi kendi bilgisayarınızda çalıştırmak için aşağıdaki adımları i
 Önce yapay zeka sunucusunu ayağa kaldırmanız gerekir. Terminalde proje klasörüne gidip şu komutu çalıştırın:
 
 ```bash
-python flaskserver.py ```
+python flaskserver.py
+```
 Sunucu http://127.0.0.1:5000 adresinde çalışmaya başlayacaktır.
 <img width="605" height="332" alt="image" src="https://github.com/user-attachments/assets/15a83b4c-b8db-4896-9df2-284acaaaf924" />
 
