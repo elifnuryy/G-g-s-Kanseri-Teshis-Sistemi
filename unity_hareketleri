@@ -1,0 +1,75 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class RotationController : MonoBehaviour
+{
+    [SerializeField] private InputActionAsset inputActions;
+    protected InputAction leftClickAction;
+
+    protected InputAction mouseMovementAction;
+
+    private bool isRotationEnabled;
+
+    private Camera mainCamera;
+
+    [SerializeField] private float rotationSpeed = 25f;
+
+    [SerializeField] private bool isInverted;
+
+    private void Awake()
+    {
+        mainCamera = Camera.main;
+        InitializeInputActions();
+    }
+
+    private void InitializeInputActions()
+    {
+        leftClickAction = inputActions.FindAction("Left Click");
+        if (leftClickAction != null)
+        {
+            leftClickAction.started += OnLeftClick;
+            leftClickAction.performed += OnLeftClick;
+            leftClickAction.canceled += OnLeftClick;
+        }
+
+        mouseMovementAction = inputActions.FindAction("Mouse Look");
+
+        inputActions.Enable();
+    }
+
+    protected virtual void OnLeftClick(InputAction.CallbackContext context)
+    {
+        if (context.started || context.performed)
+        {
+            isRotationEnabled = true;
+        }
+        else if (context.canceled)
+        {
+            isRotationEnabled = false;
+        }
+    }
+
+    protected virtual Vector2 GetMouseMovement()
+    {
+        if (mouseMovementAction != null)
+        {
+            return mouseMovementAction.ReadValue<Vector2>();
+        }
+        else
+        {
+            return Vector2.zero;
+        }
+    }
+
+    private void Update()
+    {
+        if (!isRotationEnabled) return;
+
+        Vector2 mouseDelta = GetMouseMovement();
+
+        mouseDelta *= rotationSpeed * Time.deltaTime;
+
+        transform.Rotate(Vector3.up * (isInverted ? 1 : -1), mouseDelta.x, Space.Self);
+        transform.Rotate(Vector3.forward * (isInverted ? -1 : 1), -mouseDelta.y, Space.Self);
+    }
+}
