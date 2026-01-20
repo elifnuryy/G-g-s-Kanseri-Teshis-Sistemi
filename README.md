@@ -1,4 +1,6 @@
 🎗️ Yapay Zeka Destekli Göğüs Kanseri Teşhis ve 3D Görselleştirme Sistemi
+<img width="967" height="783" alt="image" src="https://github.com/user-attachments/assets/37bb23bc-8436-488f-8d9e-14a788ae6449" />
+
 
 Bu proje, meme kanseri verilerini Derin Öğrenme (Deep Learning) yöntemleriyle analiz eden ve sonuçları Unity Oyun Motoru üzerinde 3 boyutlu olarak görselleştiren bir Karar Destek Sistemidir.
 
